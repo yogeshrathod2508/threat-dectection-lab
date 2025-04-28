@@ -1,0 +1,181 @@
+<!-- Local rules -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<!-- Example -->
+<group name="local,syslog,sshd,">
+
+  <!--
+  Dec 10 01:02:02 host sshd[1234]: Failed none for root from 1.1.1.1 port 1066 ssh2
+  -->
+  <rule id="100001" level="5">
+    <if_sid>5716</if_sid>
+    <srcip>1.1.1.1</srcip>
+    <description>sshd: authentication failed from IP 1.1.1.1.</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_10.2.5,</group>
+  </rule>
+
+</group>
+
+
+<group name="syscheck,pci_dss_11.5,nist_800_53_SI.7,">
+    <!-- Rules for Linux systems -->
+    <rule id="100200" level="7">
+        <if_sid>550</if_sid>
+        <field name="file">/home/yogesh/Downloads</field>
+        <description>File modified in /home/yogesh/Downloads directory.</description>
+    </rule>
+    <rule id="100201" level="7">
+        <if_sid>554</if_sid>
+        <field name="file">/home/yogesh/Downloads</field>
+        <description>File added to /home/yogesh/Downloads directory.</description>
+    </rule>
+</group>
+
+<group name="virustotal,">
+  <rule id="100092" level="12">
+    <if_sid>657</if_sid>
+    <match>Successfully removed threat</match>
+    <description>$(parameters.program) removed threat located at $(parameters.alert.data.virustotal.source.file)</description>
+  </rule>
+
+  <rule id="100093" level="12">
+    <if_sid>657</if_sid>
+    <match>Error removing threat</match>
+    <description>Error removing threat located at $(parameters.alert.data.virustotal.source.file)</description>
+  </rule>
+</group>
+
+
+<group name="pfsense,">
+    <rule id="87701" level="5" overwrite="yes">
+        <if_sid>87700</if_sid>
+        <action>block</action>
+        <!--<options>no_log</options>-->
+        <description>pfSense firewall drop event -  $(srcip):$(srcport) -> $(dstip):$(dstport)  </description>
+        <group>firewall_block,pci_dss_1.4,gpg13_4.12,hipaa_164.312.a.1,nist_800_53_SC.7,tsc_CC6.7,tsc_CC6.8,</group>
+    </rule>
+</group>
+
+
+<group name="attack,">
+  <rule id="100100" level="10">
+    <if_group>web|attack|attacks</if_group>
+    <list field="srcip" lookup="address_match_key">etc/lists/blacklist-alienvault</list>
+    <description>IP address found in AlienVault reputation database.</description>
+  </rule>
+</group>
+
+
+<!-- Malicious Commands in linux-->
+<group name="audit">
+  <rule id="100210" level="10">
+      <if_sid>80792</if_sid>
+  <list field="audit.command" lookup="match_key_value" check_value="red">etc/lists/suspicious-programs</list>
+    <description>Audit: Highly Suspicious Command executed: $(audit.exe)</description>
+      <group>audit_command,</group>
+  </rule>
+</group>
+
+<!-- Custom Rule for detecting MITRE ATTACK ID 1040 which is used for network sniffing, tactics: discovery and credential access -->
+<group name="windows,sysmon,">
+
+<rule id="115001" level="10">
+  <if_group>windows</if_group>
+  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1053,technique_name=Scheduled Task</field>
+  <description>A Newly Scheduled Task has been Detected on $(win.system.computer)</description>
+  <mitre>
+    <id>T1053</id>
+  </mitre>
+</rule>
+
+<rule id="115002" level="10">
+  <if_group>windows</if_group>
+  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1073,technique_name=DLL Side-Loading</field>
+  <description>DLL Side-Loading Detected on $(win.system.computer)</description>
+  <mitre>
+    <id>T1073</id>
+    <id>T1574.002</id>
+  </mitre>
+</rule>
+
+<rule id="115003" level="10">
+  <if_group>windows</if_group>
+  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1218.010,technique_name=Regsvr32</field>
+  <description>Signed Binary Proxy Execution using Regsvr32 Detected on $(win.system.computer)</description>
+  <mitre>
+    <id>T1218</id>
+    <id>T1117</id>
+  </mitre>
+</rule>
+
+<rule id="115004" level="10">
+  <if_group>windows</if_group>
+  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1518.001,technique_name=Security Software Discovery</field>
+  <description>Security Software Discovery Attempt has been Detected on $(win.system.computer)</description>
+  <mitre>
+    <id>T1518</id>
+  </mitre>
+</rule>
+
+<rule id="115005" level="10">
+  <if_group>windows</if_group>
+  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1548.002,technique_name=Bypass User Access Control</field>
+  <description>Privilege Escalation Through Bypass of UAC has been Detected on $(win.system.computer)</description>
+  <mitre>
+    <id>T1548.002</id>
+    <id>T1088</id>
+  </mitre>
+</rule>
+<!--New rules from here-->
+<rule id="115006" level="10">
+  <if_group>windows</if_group>
+  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1123,technique_name=Audio Capture</field>
+  <description>Audio Capture attempt has been Detected on $(win.system.computer)</description>
+  <mitre>
+    <id>T1123</id>
+  </mitre>
+</rule>
+
+<rule id="115007" level="10">
+  <if_group>windows</if_group>
+  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1125,technique_name=Clipboard Data</field>
+  <description>Clipboard data access attempt has been Detected on $(win.system.computer)</description>
+  <mitre>
+    <id>T1125</id>
+  </mitre>
+</rule>
+
+<rule id="115008" level="10">
+  <if_group>windows</if_group>
+  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1135,technique_name=Network Share Discovery</field>
+  <description>Network Share Discovery has been Detected on $(win.system.computer)</description>
+  <mitre>
+    <id>T1135</id>
+  </mitre>
+</rule>
+
+
+</group>
+  
+
+<!-- Alerts to ignore -->
+<group name="ossec, local, syslog, apparmor, dpkg, config_changed">
+    <rule id="533" level="0" overwrite="yes">
+     <description>Ignored - netstat port change error</description>
+    </rule>
+    <rule id="510" level="0" overwrite="yes">
+     <description>Ignored - Host-based anomaly detection event (rootcheck).</description>
+    </rule>
+    <rule id="52002" level="0" overwrite="yes">
+     <description>Ignored - AppArmor Denied.</description>
+    </rule>
+    <rule id="2904" level="0" overwrite="yes">
+     <description>Ignored - Dpkg (Debian Package) half configured.</description>
+    </rule>
+    <rule id="2902" level="0" overwrite="yes">
+     <description>Ignored - Dpkg (Debian Package) installed.</description>
+    </rule>
+    
+</group>
