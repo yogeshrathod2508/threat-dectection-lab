@@ -90,17 +90,8 @@
   </mitre>
 </rule>
 
-<rule id="115002" level="10">
-  <if_group>windows</if_group>
-  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1073,technique_name=DLL Side-Loading</field>
-  <description>DLL Side-Loading Detected on $(win.system.computer)</description>
-  <mitre>
-    <id>T1073</id>
-    <id>T1574.002</id>
-  </mitre>
-</rule>
 
-<rule id="115003" level="10">
+<rule id="115002" level="10">
   <if_group>windows</if_group>
   <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1218.010,technique_name=Regsvr32</field>
   <description>Signed Binary Proxy Execution using Regsvr32 Detected on $(win.system.computer)</description>
@@ -110,7 +101,7 @@
   </mitre>
 </rule>
 
-<rule id="115004" level="10">
+<rule id="115003" level="10">
   <if_group>windows</if_group>
   <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1518.001,technique_name=Security Software Discovery</field>
   <description>Security Software Discovery Attempt has been Detected on $(win.system.computer)</description>
@@ -119,17 +110,18 @@
   </mitre>
 </rule>
 
-<rule id="115005" level="10">
+<rule id="115004" level="10">
   <if_group>windows</if_group>
-  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1548.002,technique_name=Bypass User Access Control</field>
-  <description>Privilege Escalation Through Bypass of UAC has been Detected on $(win.system.computer)</description>
+  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1548.003,technique_name=Create or Modify System Processes</field>
+  <description>Creation or modification of system processes has been Detected on $(win.system.computer)</description>
   <mitre>
-    <id>T1548.002</id>
-    <id>T1088</id>
+    <id>T1548.003</id>
   </mitre>
 </rule>
+
 <!--New rules from here-->
-<rule id="115006" level="10">
+
+<rule id="115005" level="10">
   <if_group>windows</if_group>
   <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1123,technique_name=Audio Capture</field>
   <description>Audio Capture attempt has been Detected on $(win.system.computer)</description>
@@ -138,16 +130,7 @@
   </mitre>
 </rule>
 
-<rule id="115007" level="10">
-  <if_group>windows</if_group>
-  <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1125,technique_name=Clipboard Data</field>
-  <description>Clipboard data access attempt has been Detected on $(win.system.computer)</description>
-  <mitre>
-    <id>T1125</id>
-  </mitre>
-</rule>
-
-<rule id="115008" level="10">
+<rule id="115006" level="10">
   <if_group>windows</if_group>
   <field name="win.eventdata.ruleName" type="pcre2" >technique_id=T1135,technique_name=Network Share Discovery</field>
   <description>Network Share Discovery has been Detected on $(win.system.computer)</description>
@@ -155,7 +138,6 @@
     <id>T1135</id>
   </mitre>
 </rule>
-
 
 </group>
   
