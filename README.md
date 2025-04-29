@@ -3,6 +3,38 @@
 ![Title image](./images/title-image.png)
 
 
+This repo is the **full deep dive** into my SOC Homelab project where I built a **mini Security Operations Center** using open-source tools like Wazuh, Suricata, pfSense, and more... all from scratch.  
+Oh, and yes — **custom rules, Sysmon logs, MITRE ATT&CK mappings, and Atomic Red Team tests** are all here! 💣💻
+
+---
+## 🔧 What’s Inside the report?
+- 📄 Full Detailed Report of the Project  
+- ⚙️ Wazuh Server Configuration Files  
+- 🛠️ Custom Detection Rules mapped to MITRE ATT&CK IDs  
+- 🧪 Atomic Red Team Simulations & Detection Validation  
+- 💬 Slack Alert Integrations for Real-Time Monitoring  
+- 🧠 Lessons learned, human errors, and tuning adventures
+
+---
+
+## 🚀 Why You Should Check This Out
+Whether you're a **cybersecurity student**, a **SOC analyst in training**, or just a curious hacker soul 🌐 — this homelab setup gives you everything to start detecting like a pro.
+
+---
+
+## 👀 Connect with Me
+🔗 Portfolio: [yogeshrathod.framer.website](https://www.yogeshrathod.framer.website)  
+💼 LinkedIn: [linkedin.com/in/yogeshrathod](https://www.linkedin.com/in/yrathod/)  
+Feel free to connect or shoot any questions my way. I love nerdy convos. 😎  
+
+---
+
+## 💡 Fun Fact
+This whole lab was built on a **refurb laptop + tea-fueled weekends = 💥 production-grade detection magic**!
+
+---
+
+> “Logs don’t lie — you just need to know where to look.”  
 ## Abstract
 
 This project presents the design, implementation, and evaluation of a SOC homelab capable of real-time cyber threat detection and incident response. The lab utilizes open-source tools including:
