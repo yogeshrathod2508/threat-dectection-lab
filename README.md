@@ -1,6 +1,6 @@
 # SOC Lab with Real-Time Threat Monitoring
 
-![Wazuh Dashboard](./images/wazuh-dashboard.png)
+![Title image](./images/title-image.png)
 
 
 ## Abstract
@@ -61,7 +61,7 @@ Key features:
 ![Suricata IDS](images/suricata-dashboard.png)
 
 #### Firewall (pfSense)
-![pfSense Dashboard](images/pfsense-dashboard.png)
+![pfSense Dashboard](images/firewall-dashboard.png)
 
 #### Network Architecture
 ![Homelab Network Diagram](images/image6.png)
@@ -79,21 +79,17 @@ Key features:
 
 ## Simulated Attack Scenarios
 
-### File Integrity Monitoring
-![FIM Working](images/image16.png)
+- **Firewall Access Blocking:** Created detection rules to block attacker access via firewall.
 
-### Brute-force RDP Attacks
-![Hydra Attack](images/image19.png)
-![Auth Failure Logs](images/image20.png)
+- **File Integrity Monitoring (FIM)**: Implemented FIM to detect unauthorized changes in critical files.
 
-### Malware Detection with VirusTotal
-![Active Response](images/image21.png)
+- **RDP Brute-force and SQL Injection Protection:** Developed detection mechanisms for SSH/RDP brute-force attacks and SQL Injection attacks.
 
-### Malicious IP Blocking
-![Blocking IP](images/image22.png)
+- **MITRE ATT&CK Tactics:** Executed Atomic Red Team tests on Windows endpoints, extracted relevant logs using Sysmon, forwarded them to Wazuh, and developed detection rules mapped to specific ATT&CK technique IDs for accurate threat identification.
 
-### Suspicious Command Detection
-![Malicious Commands](images/image24.png)
+- **Malicious Commands:** Detection rules for Linux endpoints. 
+
+- **Alerting & Notifications:** Set up alerting system with notifications directly to Slack for real-time threat updates.
 
 ## Attack Emulation Using MITRE ATT&CK Framework
 
@@ -123,7 +119,6 @@ Planned enhancements:
 - Suricata NIDS fine-tuning
 - Automated incident response playbooks
 - Expanded MITRE ATT&CK coverage
-- Threat intelligence integration
 
 ## Acknowledgements
 
