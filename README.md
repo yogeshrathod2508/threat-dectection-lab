@@ -7,12 +7,10 @@ This repo is the **full deep dive** into my SOC Homelab project where I built a 
 Oh, and yes — **custom rules, Sysmon logs, MITRE ATT&CK mappings, and Atomic Red Team tests** are all here! 💣💻
 
 ---
-## 🔧 What’s Inside the report?
+## 🔧 What’s Inside?
 - 📄 Full Detailed Report of the Project  
 - ⚙️ Wazuh Server Configuration Files  
 - 🛠️ Custom Detection Rules mapped to MITRE ATT&CK IDs  
-- 🧪 Atomic Red Team Simulations & Detection Validation  
-- 💬 Slack Alert Integrations for Real-Time Monitoring  
 - 🧠 Lessons learned, human errors, and tuning adventures
 
 ---
@@ -78,9 +76,9 @@ Key features:
 - **Host System**: Windows machine running VMware Workstation Pro 17 (Free License)
 - **pfSense Firewall**: Central gateway for all network traffic
 - **Segmented Networks**:
-  - `VMnet2`: Kali Linux attack machine (192.168.1.2)
+  - `VMnet2`: Kali Linux attack machine 
   - `VMnet3`: Domain Controller + Victim machines
-  - `VMnet4`: Wazuh SIEM server (192.168.4.1)
+  - `VMnet4`: Wazuh SIEM server 
 
 
 ### Core Components
@@ -134,15 +132,6 @@ Key features:
 
 ## Real-Time Alerting with Slack
 ![Slack Notification](images/slack-alerts.png)
-
-## Conclusion
-
-This project successfully implemented a functional SOC homelab with:
-- Real-time threat detection
-- Comprehensive monitoring
-- Automated response capabilities
-- MITRE ATT&CK emulation
-- Effective alerting mechanisms
 
 ## Future Work
 
