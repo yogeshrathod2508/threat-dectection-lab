@@ -23,7 +23,7 @@ Whether you're a **cybersecurity student**, a **SOC analyst in training**, or ju
 ---
 
 ## 👀 Connect with Me
-🔗 Portfolio: [yogeshrathod.framer.website](https://www.yogeshrathod.framer.website)  
+🔗 Portfolio: [yogeshrathod.framer.website](https://yogeshrathod.framer.website)  
 💼 LinkedIn: [linkedin.com/in/yogeshrathod](https://www.linkedin.com/in/yrathod/)  
 Feel free to connect or shoot any questions my way. I love nerdy convos. 😎  
 
