@@ -63,7 +63,7 @@ Key features:
 ![pfSense Dashboard](images/firewall-dashboard.png)
 
 #### Network Architecture
-![Homelab Network Diagram](images/image6.png)
+![Homelab Network Diagram](images/network-diagram.png)
 
 ### Configuration Steps
 
