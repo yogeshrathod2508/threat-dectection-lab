@@ -23,10 +23,9 @@ Key features:
 ## Table of Contents
 
 - [Hardware Requirements](#hardware-requirements)
-- [Environment Setup](#environment-setup)
-- [Simulated Attack Scenarios](#simulated-attack-scenarios)
-- [MITRE ATT&CK Framework](#attack-emulation-using-mitre-attck-framework)
-- [Real-Time Alerting](#setting-up-slack-to-receive-alerts-in-real-time)
+- [Simulated Attack Scenarios - Wazuh POC](#simulated-attack-scenarios)
+- [Integrating Atomic Red Team with Wazuh](#configured-attack-emulations-using-mitre-attck-framework-and-atomic-red-team-tests)
+- [Real-Time Alerting with Slack WebHook](#real-time-alerting-with-slack)
 - [Conclusion](#conclusion)
 - [Future Work](#future-work)
 
@@ -91,7 +90,7 @@ Key features:
 
 - **Alerting & Notifications:** Set up alerting system with notifications directly to Slack for real-time threat updates.
 
-## Attack Emulation Using MITRE ATT&CK Framework
+## Configured Attack Emulations Using MITRE ATT&CK Framework and Atomic Red Team Tests
 
 | Technique | Description 
 |-----------|-------------
